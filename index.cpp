@@ -1,18 +1,12 @@
-// ========== Offline C++ Version (two JSON files) ==========
-// - Place input1.json and input2.json in the same folder as this source.
-// - Uses nlohmann/json (single‑header) to parse JSON.
-// - Compile with:
-//     g++ -std=c++17 offline.cpp -o offline
-// - Run:
-//     ./offline
+
 
 #include <bits/stdc++.h>
-#include "json.hpp"           // https://github.com/nlohmann/json
+#include "json.hpp"        
 using namespace std;
 using json = nlohmann::json;
 using ll = long long;
 
-// decode string s in base b into a 64‑bit integer
+
 ll decode(const string &s, int b) {
     ll v = 0;
     for (char c : s) {
@@ -22,7 +16,7 @@ ll decode(const string &s, int b) {
     return v;
 }
 
-// compute constant term c = f(0) via Lagrange interpolation
+
 long double lagrange_c(const vector<ll>& x, const vector<long double>& y) {
     int k = x.size();
     long double c = 0;
@@ -56,7 +50,7 @@ int main() {
         xs.reserve(k);
         ys.reserve(k);
 
-        // collect first k points
+   
         for (auto &it : J.items()) {
             if (it.key() == "keys") continue;
             if ((int)xs.size() == k) break;
